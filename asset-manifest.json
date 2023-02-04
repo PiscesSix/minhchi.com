@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "./static/css/main.605ee49d.css",
+    "main.js": "./static/js/main.6416755e.js",
+    "static/media/Hack Regular Nerd Font Complete.ttf": "./static/media/Hack Regular Nerd Font Complete.fc18ec86e5c47a5436cd.ttf",
+    "static/media/UTM Nyala.ttf": "./static/media/UTM Nyala.da9508aa8ef2d5e7817c.ttf",
+    "index.html": "./index.html",
+    "main.605ee49d.css.map": "./static/css/main.605ee49d.css.map",
+    "main.6416755e.js.map": "./static/js/main.6416755e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.605ee49d.css",
+    "static/js/main.6416755e.js"
+  ]
+}
