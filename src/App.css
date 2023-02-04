@@ -1,38 +1,330 @@
+@font-face {
+    font-family: 'HackNerdFont';
+    src: url('../public/fonts/Hack\ Regular\ Nerd\ Font\ Complete.ttf');
+}
+
+@font-face {
+    font-family: 'UTMTime';
+    src: url('../public/fonts/UTM\ Nyala.ttf');
+}
+
+a {
+    color: #6665ee;
+    text-decoration: none;
+}
+
+p {
+    margin: 10px;
+}
+/* Input */
+
+.terminal-input-area {
+    width: 100%;
+    align-items: center;
+}
+
+.terminal-input {
+    font-family: inherit;
+    font-size: inherit;
+    font-size: inherit;
+    color: white;
+    background: transparent;
+    border: 0px;
+    /* no highlight on focus */
+    outline: none; 
+    /* width: 100%; */
+}
+
+.terminal-input-change {
+    font-family: inherit;
+    font-size: inherit;
+    font-size: inherit;
+    color: rgb(13, 3, 3);
+    background: transparent;
+    border: 0px;
+    /* no highlight on focus */
+    outline: none; 
+    /* width: 100%; */
+}
+
+
+/* Prompt */
+.terminal-prompt {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.terminal-prompt .name {
+    color: #9F73AB;    
+}
+.terminal-prompt .nickname {
+    color: #A3C7D6
+}
+
+
+.App, .terminal-container {
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: scroll;
+}
+
 .App {
-  text-align: center;
+    background: linear-gradient(#3F3B6C, #3F3B6C), 
+    linear-gradient(to bottom right, #A3C7D6, #3F3B6C);
+    background-origin: padding-box, border-box;
+    background-repeat: no-repeat; /* this is important */
+    border: 4px solid transparent;
+    /* border: 4px solid #9F73AB; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.terminal-content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 25px;
+    font-size: 18px;
+    /* line-height: 20px; */
+    white-space: pre-wrap;
+    color: white;
+    font-family: 'HackNerdFont';
+    /* font-family: 'UTMTime'; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.terminal-banner {
+    font-size: 20px;
+    font-family: 'HackNerdFont', sans-serif;
+    color: #A3C7D6;
+    -webkit-text-stroke: 2px #A3C7D6;
+    /* text-shadow: 0px 0 6px #A3C7D6; */
+    /* line-height: normal; */
+    /* font-weight: bold; */
+    /* font-size: calc(0.75vw + 5px); */
+    margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media only screen and (max-width: 750px) {
+    .terminal-banner {
+        font-size: 5px;
+    }
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (max-width: 500px) {
+    .terminal-banner {
+        font-size: 4px;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Custom scrollbar */
+.App::-webkit-scrollbar {
+    width: 50px;
+}
+.terminal-container::-webkit-scrollbar {
+    width: 5px;
+}
+.terminal-container::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, #00a6ff, #e7eeef);
+    border-radius: 1000rem;
+}
+.terminal-container::-webkit-scrollbar-track {
+    opacity: 1;
+}
+
+/* Output */
+.terminal-command-output {
+    padding: 10px;
+    max-width: 800px;
+    line-height: 20px;
+}
+
+/* Welcome */
+.terminal-welcome-message {
+    margin-bottom: 10px;
+}
+
+
+/* Error */
+.terminal-error-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+}
+.terminal-error {
+    color: red;
+}
+
+/* Notification */
+.terminal-notification {
+    display: block;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+/* HelpCommand */
+.helpCommand, .whoamiCommand, .projectCommand, .websiteCommand, .blogCommand{
+    font-family: "UTMTime";
+    font-size: 24px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.helpCommand dt, .helpCommand span {
+    font-family: 'HackNerdFont';
+    font-size: 18px;
+    color: #eeeeee;
+    text-shadow: 0 0 4px #eeeeee;
+    font-weight: bold;
+}
+
+.helpCommand dd {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/* skillCommand */
+.skillCommand {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skillCommand .box {
+    flex-basis: 500px;
+}
+
+.skillCommand .bar {
+    margin: 20px 0;
+}
+
+.skillCommand .bar:first-child {
+    margin-top: 5px;
+}
+
+.skillCommand .bar .info {
+    margin-bottom: 5px;
+}
+
+.skillCommand .bar .info span {
+    font-family: 'HackNerdFont';
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 0 4px #eeeeee;
+}
+
+.skillCommand .bar .progress-line {
+    position: relative;
+    height: 10px;
+    width: 100%;
+    background: #f0f0f0;
+    border-radius: 10px;
+
+    transform: scaleX(0); 
+    transform-origin: left;
+    animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+
+.bar .progress-line span {
+    height: 100%;
+    width: 80%;
+    background: #6665ee; 
+    position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0); 
+    transform-origin: left;
+    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+
+@keyframes animate {
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+.progress-line.html span{
+    width: 80%;
+}
+
+.progress-line.css span{
+    width: 56%;
+}
+
+.progress-line.python span{
+    width: 70%;
+}
+
+.progress-line.typescript span{
+    width: 40%;
+}
+
+.progress-line.matlab span{
+    width: 60%;
+}
+
+.progress-line.pwn span{
+    width: 60%;
+}
+
+.progress-line.re span{
+    width: 40%;
+}
+
+.bar .progress-line span::before {
+    position: absolute;
+    content: "";
+    right: 0;
+    height: 0;
+    width: 0;
+    top: -10px;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-color: #000;
+    opacity: 0;
+    animation: showText 0.5s 1.5s linear forwards;
+}
+
+.bar .progress-line span::after {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    background: #000;
+    padding: 1px 8px;
+    border-radius: 3px;
+}
+
+@keyframes showText {
+    100%{
+        opacity: 1;
+    }
+}
+
+.progress-line.html span::after {
+    content: "80%";
+}
+
+.progress-line.css span::after {
+    content: "56%";
+}
+
+.progress-line.python span::after {
+    content: "70%";
+}
+
+.progress-line.typescript span::after {
+    content: "40%";
+}
+
+.progress-line.matlab span::after {
+    content: "60%";
+}
+
+.progress-line.pwn span::after {
+    content: "60%";
+}
+
+.progress-line.re span::after {
+    content: "40%";
 }
