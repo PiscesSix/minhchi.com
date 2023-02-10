@@ -20,7 +20,7 @@ export function HelpCommand() : JSX.Element {
                 <dt>clear</dt>
                 <dd>Xoá tất cả đầu ra</dd>
                 <dt>all</dt>
-                <dd>Hiện ra mọi thứ</dd>
+                <dd>Hiện ra mọi điều về bản thân tôi</dd>
                 <br></br>
                 [<span>tab</span>]: Tự hoàn thành câu lệnh <br></br>
                 [<span>ctrl+l</span>] = clear

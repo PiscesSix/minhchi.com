@@ -122,16 +122,14 @@ const Terminal = (props: TerminalProps) => {
                 }
                 case "all": {
                     const allCommandsOutput = [
-                        "help",
                         "whoami",
                         "projects",
                         "skills",
-                        "website",
-                        "blog"
+                        "website"
                     ].map((command) => (
                         <>
-                            <div className="terminal-heading">{command}</div>
-                            <div className="terminal-command-output">
+                            <div className="allCommands">{command + ":"}</div>
+                            <div className="listAllCommands">
                                 {commands[command as EchoCommand]}
                             </div>
                         </>
