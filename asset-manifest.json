@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.76cf441c.css",
-    "main.js": "./static/js/main.e4913966.js",
-    "static/media/Hack Regular Nerd Font Complete.ttf": "./static/media/Hack Regular Nerd Font Complete.fc18ec86e5c47a5436cd.ttf",
-    "static/media/UTM Nyala.ttf": "./static/media/UTM Nyala.da9508aa8ef2d5e7817c.ttf",
-    "index.html": "./index.html",
-    "main.76cf441c.css.map": "./static/css/main.76cf441c.css.map",
-    "main.e4913966.js.map": "./static/js/main.e4913966.js.map"
+    "main.css": "/static/css/main.a6b43518.css",
+    "main.js": "/static/js/main.e4913966.js",
+    "static/media/Hack Regular Nerd Font Complete.ttf": "/static/media/Hack Regular Nerd Font Complete.fc18ec86e5c47a5436cd.ttf",
+    "static/media/UTM Nyala.ttf": "/static/media/UTM Nyala.da9508aa8ef2d5e7817c.ttf",
+    "index.html": "/index.html",
+    "main.a6b43518.css.map": "/static/css/main.a6b43518.css.map",
+    "main.e4913966.js.map": "/static/js/main.e4913966.js.map"
   },
   "entrypoints": [
-    "static/css/main.76cf441c.css",
+    "static/css/main.a6b43518.css",
     "static/js/main.e4913966.js"
   ]
 }
