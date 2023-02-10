@@ -113,13 +113,13 @@ p {
     margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1095px) {
     .terminal-banner {
         font-size: 5px;
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 550px) {
     .terminal-banner {
         display: none !important;
     }
