@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type InputAreaProps = {
     terminalPrompt: string[];
@@ -11,7 +11,10 @@ type InputAreaProps = {
 
 const InputArea = (props: InputAreaProps) => {
     const [input, setInput] = useState("");
-    let change = document.querySelector("#change-input") as HTMLInputElement | null;
+    const [style, setStyle] = useState({
+        color: "white",
+        weight: "normal",
+    });
 
     const allEchoCommands = [
         "help",
@@ -24,42 +27,27 @@ const InputArea = (props: InputAreaProps) => {
         "cv",
         "all"
     ] as const;
-
     type AllEchoCommands = typeof allEchoCommands[number];
-
     function isEchoCommand(arg: string): arg is AllEchoCommands {
         return (allEchoCommands as ReadonlyArray<string>).includes(arg);
     }
-    
-    function changeColor1(){
-        if (change != null){
-            change.style.color = `#4884FA`;
-            change.style.fontWeight =`bold`;
-        }
-    }
+    const checkEchoCommand = isEchoCommand(input);
 
-    function changeColor2(){
-        if (change != null){
-            change.style.color = `white`;
-            change.style.fontWeight =`normal`;
-        }
-    }
+    useEffect(() => {
+        checkEchoCommand ? setStyle({color: "#85CDFD", weight: "bold"}) : setStyle({color: "white", weight: "normal"});
+    },[input, checkEchoCommand])
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInput(event.target.value);
     }
-
+    
     const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.ctrlKey && event.key === "l"){
             props.setOutput([]);
             event.preventDefault();
         }
-
         switch (event.key) {
             case "Enter":
-                if (change != null){
-                    change.removeEventListener('keyup', changeColor1);
-                }
                 props.processCommand(input);
                 setInput("");
                 break;
@@ -76,17 +64,9 @@ const InputArea = (props: InputAreaProps) => {
                 event.preventDefault();
                 setInput(props.getAutocomplete(input));
                 break;
-        } 
+        }
     };
 
-    if (isEchoCommand(input)){
-        // change?.removeEventListener('keyup', changeColor2);
-        change?.addEventListener('keyup', changeColor1);
-    } else {
-        change?.removeEventListener('keyup', changeColor1);
-        change?.addEventListener('keyup', changeColor2);
-    }
-    
     return (
         <div className="terminal-input-area">
             <span className="terminal-prompt">
@@ -104,6 +84,7 @@ const InputArea = (props: InputAreaProps) => {
                 autoCapitalize="off"
                 autoComplete="off"
                 ref={props.inputRef}
+                style={{color: style.color, fontWeight: style.weight}}
             />
         </div>
     )
