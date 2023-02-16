@@ -1,6 +1,8 @@
 import React from 'react';
+import { useEffect } from 'react';
 import "./App.css"
 import Terminal from './components/Terminal';
+import Star from './components/Star';
 
 const welcomeMessage = `WELCOME 
 
@@ -25,6 +27,7 @@ const prompt: string[] = [name, nickname, ic];
 function App() {
   return (
     <div className="App">
+        <Star></Star>
         <Terminal
           banner={bannerCondensed()}
           terminalPrompt={prompt}
